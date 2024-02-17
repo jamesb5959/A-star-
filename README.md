@@ -1,7 +1,7 @@
 A* in different languages. 
 
 Format:
-
+```
 // A* (star) Pathfinding// Initialize both open and closed list
 let the openList equal empty list of nodes
 let the closedList equal empty list of nodes// Add the start node
