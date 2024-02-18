@@ -8,9 +8,10 @@ class Node:
     A node class for A* Pathfinding
     """
 
-    def __init__(self, parent=None, position=None):
+    def __init__(self, parent=None, position=None, nodeCost=None):
         self.parent = parent
         self.position = position
+        self.nodeCost = nodeCost  # Added this line
 
         self.g = 0
         self.h = 0
