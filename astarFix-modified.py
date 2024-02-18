@@ -283,9 +283,7 @@ def terminalMain(testCase = 1, heuristic = 2):
     print()
 
 
-def main():
-    testcases = []
-    
+def main():    
     maze = [
         [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
@@ -300,11 +298,25 @@ def main():
     ]
     start = (0, 0)
     end = (7, 6)
-    test = (maze, start, end)
-    testcases.append(test)
-
-
-
+    print(f'{1}')
+    for i in range(4):
+        heuristicNum = i + 1
+        print(f'Heuristic Number:\n{heuristicNum}')
+        startTime = time.time()
+        (path, totalNodes) = astar(maze, start, end, heuristicNum)
+        endTime = time.time()
+        if not path:
+            cost = -1
+            path = 'NULL'
+        else:
+            cost = 0
+            for node in path:
+                cost += maze[node[0]][node[1]]
+        print(f'Cost of path:\n{cost}')
+        print(f'Path found:\n{path}')
+        print(f'Nodes created:\n{totalNodes}')
+        print(f'Execution time:\n{endTime - startTime}')
+        print()
 
     maze = [
         [2, 4, 2, 1, 4, 5, 2],
@@ -315,11 +327,25 @@ def main():
     ]
     start = (1, 2)
     end = (4, 3)
-    test = (maze, start, end)
-    testcases.append(test)
-
-
-
+    print(f'{2}')
+    for i in range(4):
+        heuristicNum = i + 1
+        print(f'Heuristic Number:\n{heuristicNum}')
+        startTime = time.time()
+        (path, totalNodes) = astar(maze, start, end, heuristicNum)
+        endTime = time.time()
+        if not path:
+            cost = -1
+            path = 'NULL'
+        else:
+            cost = 0
+            for node in path:
+                cost += maze[node[0]][node[1]]
+        print(f'Cost of path:\n{cost}')
+        print(f'Path found:\n{path}')
+        print(f'Nodes created:\n{totalNodes}')
+        print(f'Execution time:\n{endTime - startTime}')
+        print()
 
     maze = [
         [1, 3, 2, 5, 1, 4, 3],
@@ -332,11 +358,25 @@ def main():
     ]
     start = (3, 6)
     end = (5, 1)
-    test = (maze, start, end)
-    testcases.append(test)
-
-
-
+    print(f'{3}')
+    for i in range(4):
+        heuristicNum = i + 1
+        print(f'Heuristic Number:\n{heuristicNum}')
+        startTime = time.time()
+        (path, totalNodes) = astar(maze, start, end, heuristicNum)
+        endTime = time.time()
+        if not path:
+            cost = -1
+            path = 'NULL'
+        else:
+            cost = 0
+            for node in path:
+                cost += maze[node[0]][node[1]]
+        print(f'Cost of path:\n{cost}')
+        print(f'Path found:\n{path}')
+        print(f'Nodes created:\n{totalNodes}')
+        print(f'Execution time:\n{endTime - startTime}')
+        print()
 
     maze = [
         [2, 0, 2, 0, 2, 0, 0, 2, 2, 0],
@@ -352,13 +392,27 @@ def main():
     ]
     start = (1, 2)
     end = (8, 8)
-    test = (maze, start, end)
-    testcases.append(test)
+    print(f'{4}')
+    for i in range(4):
+        heuristicNum = i + 1
+        print(f'Heuristic Number:\n{heuristicNum}')
+        startTime = time.time()
+        (path, totalNodes) = astar(maze, start, end, heuristicNum)
+        endTime = time.time()
+        if not path:
+            cost = -1
+            path = 'NULL'
+        else:
+            cost = 0
+            for node in path:
+                cost += maze[node[0]][node[1]]
+        print(f'Cost of path:\n{cost}')
+        print(f'Path found:\n{path}')
+        print(f'Nodes created:\n{totalNodes}')
+        print(f'Execution time:\n{endTime - startTime}')
+        print()
 
-
-
-
-    # my test cases:
+    # my test
     maze = [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -373,11 +427,25 @@ def main():
     ]
     start = (0, 0)
     end = (4, 4)
-    test = (maze, start, end)
-    testcases.append(test)
-
-
-
+    print(f'{5}')
+    for i in range(4):
+        heuristicNum = i + 1
+        print(f'Heuristic Number:\n{heuristicNum}')
+        startTime = time.time()
+        (path, totalNodes) = astar(maze, start, end, heuristicNum)
+        endTime = time.time()
+        if not path:
+            cost = -1
+            path = 'NULL'
+        else:
+            cost = 0
+            for node in path:
+                cost += maze[node[0]][node[1]]
+        print(f'Cost of path:\n{cost}')
+        print(f'Path found:\n{path}')
+        print(f'Nodes created:\n{totalNodes}')
+        print(f'Execution time:\n{endTime - startTime}')
+        print()
 
     maze = [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -393,50 +461,33 @@ def main():
     ]
     start = (0, 0)
     end = (8, 8)
-    test = (maze, start, end)
-    testcases.append(test)
-
-    for testcase in testcases:
-        maze = testcase[0]
-        start = testcase[1]
-        end = testcase[2]
-
-        print(f'{testcase}')
-        for i in range(4):
-            heuristicNum = i + 1
-            print(f'Heuristic Number:\n{heuristicNum}')
-            startTime = time.time()
-            (path, totalNodes) = astar(maze, start, end, heuristicNum)
-            endTime = time.time()
-
-            if not path:
-                cost = -1
-                path = 'NULL'
-            else:
-                cost = 0
-                for node in path:
-                    cost += maze[node[0]][node[1]]
-            
-            print(f'Cost of path:\n{cost}')
-            print(f'Path found:\n{path}')
-            print(f'Nodes created:\n{totalNodes}')
-            print(f'Execution time:\n{endTime - startTime}')
-            print()
-        print('#########################################################################')
-        input(f' > FINISHED TESTCASE, PRESS ENTER TO CONTINUE...\n')
-
+    print(f'{6}')
+    for i in range(4):
+        heuristicNum = i + 1
+        print(f'Heuristic Number:\n{heuristicNum}')
+        startTime = time.time()
+        (path, totalNodes) = astar(maze, start, end, heuristicNum)
+        endTime = time.time()
+        if not path:
+            cost = -1
+            path = 'NULL'
+        else:
+            cost = 0
+            for node in path:
+                cost += maze[node[0]][node[1]]
+        print(f'Cost of path:\n{cost}')
+        print(f'Path found:\n{path}')
+        print(f'Nodes created:\n{totalNodes}')
+        print(f'Execution time:\n{endTime - startTime}')
+        print()
 
 if __name__ == '__main__':
     args = sys.argv[1:]
     if len(args) < 1:
-        input(f' > NO ARGUMENTS WERE GIVEN, THE PROGRAM WILL USE DEFAULT TESTS\n > PRESS ENNTER TO CONTINUE...')
-        main()
+        print(f'NO ARGUMENTS WERE GIVEN')
     elif len(args) != 2:
-        input(f' > INVALID ARGUMENTS WERE GIVEN (RECEIVED {len(args)} ARGUMENTS, BUT TASK 2 TAKES 2 ARGUMENTS), THE PROGRAM WILL USE DEFAULT TESTS\n > PRESS ENTER TO CONTINUE...')
-        main()
+        print(f'INVALID ARGUMENTS WERE GIVEN (RECEIVED {len(args)} ARGUMENTS, BUT TAKES 2 ARGUMENTS)')
     else:
         try:
             h = int(args[1])
-        except:
-            h = 2
         terminalMain(args[0], h)
