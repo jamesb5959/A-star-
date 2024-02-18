@@ -173,7 +173,7 @@ def errorManhattanHeuristic(node, endNode):
     return adjustedDistance
 
 
-def terminalMain(testCase = 1, heuristic = 2):
+def termMain(testCase = 1, heuristic = 2):
     if not (heuristic >= 1 and heuristic <= 4):
         heuristic = 2
     match testCase:
@@ -487,6 +487,5 @@ if __name__ == '__main__':
         print(f'NO ARGUMENTS WERE GIVEN')
     elif len(args) != 2:
         print(f'INVALID ARGUMENTS WERE GIVEN (RECEIVED {len(args)} ARGUMENTS, BUT TAKES 2 ARGUMENTS)')
-    else:
-        h = int(args[1])
-        terminalMain(args[0], h)
+    elif int(args[0]) <= 5 and int(args[1]) <= 4:
+        termMain(args[0], int(args[1]))
