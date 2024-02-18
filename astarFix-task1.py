@@ -325,5 +325,5 @@ if __name__ == '__main__':
         print(f' NO ARGUMENTS WERE GIVEN.')
     elif len(args) != 2:
         print(f' INVALID ARGUMENTS WERE GIVEN (RECEIVED {len(args)} ARGUMENTS, BUT TASK 2 TAKES 2 ARGUMENTS)')
-    elif args[0] <= 5 && args[1] <= 4:
+    elif args[0] <= 5 and args[1] <= 4:
         terminalMain(args[0], int(args[1]))
