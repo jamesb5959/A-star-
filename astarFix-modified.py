@@ -489,3 +489,5 @@ if __name__ == '__main__':
         print(f'INVALID ARGUMENTS WERE GIVEN (RECEIVED {len(args)} ARGUMENTS, BUT TAKES 2 ARGUMENTS)')
     elif int(args[0]) <= 5 and int(args[1]) <= 4:
         termMain(args[0], int(args[1]))
+    else:
+        print(f'ARGUMENT 1 NEEDS TO BE <= 5 AND ARGUMENT 2 NEEDS TO BE <= 4')
