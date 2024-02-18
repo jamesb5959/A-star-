@@ -131,3 +131,189 @@ def astar(maze, start, end, allow_diagonal_movement = False):
 
     warn("Couldn't get a path to destination")
     return ([], totalNodes)
+
+def manhattanHeuristic(node, endNode):
+    return abs(node.position[0] - endNode.position[0]) + abs(node.position[1] - endNode.position[1])
+
+def main():
+    maze = [
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    ]
+    start = (0, 0)
+    end = (7, 6)
+    startTime = time.time()
+    (path, totalNodes) = astar(maze, start, end)
+    endTime = time.time()
+    if not path:
+        cost = -1
+        path = 'NULL'
+    else:
+        cost = 0
+        for node in path:
+            cost += maze[node[0]][node[1]]
+    print(f'{1}')
+    print(f'Cost of path:\n{cost}')
+    print(f'Path found:\n{path}')
+    print(f'Nodes created:\n{totalNodes}')
+    print(f'Execution time:\n{endTime - startTime}')
+    print()
+
+    maze = [
+        [2, 4, 2, 1, 4, 5, 2],
+        [0, 1, 2, 3, 5, 3, 1],
+        [2, 0, 4, 4, 1, 2, 4],
+        [2, 5, 5, 3, 2, 0, 1],
+        [4, 3, 3, 2, 1, 0, 1]
+    ]
+    start = (1, 2)
+    end = (4, 3)
+    startTime = time.time()
+    (path, totalNodes) = astar(maze, start, end)
+    endTime = time.time()
+    if not path:
+        cost = -1
+        path = 'NULL'
+    else:
+        cost = 0
+        for node in path:
+            cost += maze[node[0]][node[1]]
+    print(f'{2}')
+    print(f'Cost of path:\n{cost}')
+    print(f'Path found:\n{path}')
+    print(f'Nodes created:\n{totalNodes}')
+    print(f'Execution time:\n{endTime - startTime}')
+    print()
+
+    maze = [
+        [1, 3, 2, 5, 1, 4, 3],
+        [2, 1, 3, 1, 3, 2, 5],
+        [3, 0, 5, 0, 1, 2, 2],
+        [5, 3, 2, 1, 5, 0, 3],
+        [2, 4, 1, 0, 0, 2, 0],
+        [4, 0, 2, 1, 5, 3, 4],
+        [1, 5, 1, 0, 2, 4, 1]
+    ]
+    start = (3, 6)
+    end = (5, 1)
+    startTime = time.time()
+    (path, totalNodes) = astar(maze, start, end)
+    endTime = time.time()
+    if not path:
+        cost = -1
+        path = 'NULL'
+    else:
+        cost = 0
+        for node in path:
+            cost += maze[node[0]][node[1]]
+    print(f'{3}')
+    print(f'Cost of path:\n{cost}')
+    print(f'Path found:\n{path}')
+    print(f'Nodes created:\n{totalNodes}')
+    print(f'Execution time:\n{endTime - startTime}')
+    print()
+
+    maze = [
+        [2, 0, 2, 0, 2, 0, 0, 2, 2, 0],
+        [1, 2, 3, 5, 2, 1, 2, 5, 1, 2],
+        [2, 0, 2, 2, 1, 2, 1, 2, 4, 2],
+        [2, 0, 1, 0, 1, 1, 1, 0, 0, 1],
+        [1, 1, 0, 0, 5, 0, 3, 2, 2, 2],
+        [2, 2, 2, 2, 1, 0, 1, 2, 1, 0],
+        [1, 0, 2, 1, 3, 1, 4, 3, 0, 1],
+        [2, 0, 5, 1, 5, 2, 1, 2, 4, 1],
+        [1, 2, 2, 2, 0, 2, 0, 1, 1, 0],
+        [5, 1, 2, 1, 1, 1, 2, 0, 1, 2]
+    ]
+    start = (1, 2)
+    end = (8, 8)
+    startTime = time.time()
+    (path, totalNodes) = astar(maze, start, end)
+    endTime = time.time()
+    if not path:
+        cost = -1
+        path = 'NULL'
+    else:
+        cost = 0
+        for node in path:
+            cost += maze[node[0]][node[1]]
+    print(f'{4}')
+    print(f'Cost of path:\n{cost}')
+    print(f'Path found:\n{path}')
+    print(f'Nodes created:\n{totalNodes}')
+    print(f'Execution time:\n{endTime - startTime}')
+    print()
+
+    # my test
+    maze = [
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    ]
+    start = (0, 0)
+    end = (4, 4)
+    startTime = time.time()
+    (path, totalNodes) = astar(maze, start, end)
+    endTime = time.time()
+    if not path:
+        cost = -1
+        path = 'NULL'
+    else:
+        cost = 0
+        for node in path:
+            cost += maze[node[0]][node[1]]
+    print(f'{4}')
+    print(f'Cost of path:\n{cost}')
+    print(f'Path found:\n{path}')
+    print(f'Nodes created:\n{totalNodes}')
+    print(f'Execution time:\n{endTime - startTime}')
+    print()
+
+    maze = [
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
+    ]
+    start = (0, 0)
+    end = (8, 8)
+    startTime = time.time()
+    (path, totalNodes) = astar(maze, start, end)
+    endTime = time.time()
+    if not path:
+        cost = -1
+        path = 'NULL'
+    else:
+        cost = 0
+        for node in path:
+            cost += maze[node[0]][node[1]]
+    print(f'{5}')
+    print(f'Cost of path:\n{cost}')
+    print(f'Path found:\n{path}')
+    print(f'Nodes created:\n{totalNodes}')
+    print(f'Execution time:\n{endTime - startTime}')
+    print()
+
+if __name__ == '__main__':
+    main()
