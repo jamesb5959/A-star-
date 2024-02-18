@@ -150,29 +150,37 @@ def astar(maze, start, end, heuristic = 2, allow_diagonal_movement = False):
     warn("Couldn't get a path to destination")
     return ([], totalNodes)
 
+#def zeroHeuristic(node, end_node):
+#   """Heuristic H1: All zeros"""
+#  return 0
 
 def manhattanHeuristic(node, endNode):
     return abs(node.position[0] - endNode.position[0]) + abs(node.position[1] - endNode.position[1])
 
 def modManhattanHeuristic(node, endNode):
+    # This heuristic is still admissible but more accurate; it could be, for example, Manhattan distance multiplied by a constant factor
+    #return 2 * (abs(node.position[0] - end_node.position[0]) + abs(node.position[1] - end_node.position[1]))
     # multiplies the original sum from the manhattanHeuristic by half the cost of the node
     return (0.5 * node.cost) * abs(node.position[0] - endNode.position[0]) + abs(node.position[1] - endNode.position[1])
 
+#def errorManhattanHeuristic(node, endnode):
+#    """Heuristic H4: Manhattan distance with error"""
+#    # Add errors from -10 to +10, excluding 0 with a uniform random distribution
+#    error = random.randint(-10, 10)
+#    if error == 0:
+#        error = 1 if random.random() < 0.5 else -1
+#    return max(0, abs(node.position[0] - endnode.position[0]) + abs(node.position[1] - endnode.position[1]) + error)
 
 def errorManhattanHeuristic(node, endNode):
     # Standard Manhattan distance calculation
     manhattanDistance = manhattanHeuristic(node, endNode)
-    
     # Generate a random error between -10 and 10, excluding 0
     error = random.choice(list(range(-10, 0)) + list(range(1, 11)))
-    
     # Add the error to the Manhattan distance
     adjustedDistance = manhattanDistance + error
-    
     # Ensure the heuristic is at least 0
     if adjustedDistance < 0:
         adjustedDistance = 0
-    
     return adjustedDistance
 
 def main():    
