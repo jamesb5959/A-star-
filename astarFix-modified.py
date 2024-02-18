@@ -488,6 +488,5 @@ if __name__ == '__main__':
     elif len(args) != 2:
         print(f'INVALID ARGUMENTS WERE GIVEN (RECEIVED {len(args)} ARGUMENTS, BUT TAKES 2 ARGUMENTS)')
     else:
-        try:
-            h = int(args[1])
+        h = int(args[1])
         terminalMain(args[0], h)
