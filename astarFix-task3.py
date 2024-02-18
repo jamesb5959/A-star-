@@ -121,7 +121,7 @@ def astar(maze, start, end, allow_diagonal_movement = False):
                 continue
 
             # Create the f, g, and h values
-            child.g = current_node.g + child.cost
+            child.g = current_node.g + child.nodeCost
             child.h = manhattanHeuristic(child, end_node)
             child.f = child.g + child.h
 
